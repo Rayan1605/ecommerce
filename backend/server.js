@@ -1,7 +1,9 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser'; //The cookie-parser middleware is commonly
+// used in web applications to handle and parse cookies that are sent between the client
+// (usually a web browser) and the server.
 dotenv.config();
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
