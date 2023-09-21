@@ -3,10 +3,11 @@ import asyncHandler from './asyncHandler.js';
 import User from '../models/userModel.js';
 
 // User must be authenticated
+//Make sure in your middleware folder you have a next so it can more to the next middleware
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  // Read JWT from the 'jwt' cookie
+  // Read JWT from the 'jwt' cookie, it jwt because we called it jwt in generateToken.js
   token = req.cookies.jwt;
 
   if (token) {
