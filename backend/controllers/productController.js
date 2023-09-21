@@ -30,7 +30,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @access  Public
 const getProductById = asyncHandler(async (req, res) => {
   // NOTE: checking for valid ObjectId to prevent CastError moved to separate
-  // middleware. See README for more info.
+  // middleware.
 
   const product = await Product.findById(req.params.id);
   if (product) {
@@ -107,7 +107,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @desc    Create new review
 // @route   POST /api/products/:id/reviews
 // @access  Private
-const createProductReview = asyncHandler(async (req, res) => {
+const createProductReview = asyncHandler(async (req, res) => { // ayncHandler is a middleware for  handling async functions
   const { rating, comment } = req.body;
 
   const product = await Product.findById(req.params.id);

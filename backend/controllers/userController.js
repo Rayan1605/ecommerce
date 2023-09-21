@@ -6,14 +6,14 @@ import User from '../models/userModel.js';
 // @route   POST /api/users/auth
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body; // destructure from req.body
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email }); // find user by email
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
 
-    res.json({
+    res.json({ //this is the response
       _id: user._id,
       name: user.name,
       email: user.email,
